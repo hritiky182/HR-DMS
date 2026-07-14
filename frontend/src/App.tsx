@@ -10,8 +10,13 @@ import { SignaturesPage } from "@/pages/Signatures";
 import { AuditPage } from "@/pages/AuditLog";
 import { SettingsPage } from "@/pages/Settings";
 import { RoleGuard } from "@/pages/RoleGuard";
+import { LoginPage } from "@/pages/Login";
 
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
   {
     path: "/",
     element: <AppLayout />,

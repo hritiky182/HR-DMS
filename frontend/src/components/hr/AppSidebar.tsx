@@ -20,7 +20,7 @@ interface NavItem {
   roles: Role[];
 }
 
-const NAV: NavItem[] = [
+export const NAV: NavItem[] = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, roles: ["admin", "manager", "employee"] },
   { to: "/employees", label: "Employees", icon: Users, roles: ["admin", "manager"] },
   { to: "/documents", label: "Document Repository", icon: FolderOpen, roles: ["admin", "manager"] },
@@ -36,7 +36,7 @@ export function AppSidebar() {
   const items = NAV.filter((n) => n.roles.includes(role));
 
   return (
-    <aside className="hidden md:flex md:w-60 md:flex-col md:shrink-0 border-r bg-sidebar text-sidebar-foreground">
+    <aside className="sticky top-0 h-screen hidden md:flex md:w-60 md:flex-col md:shrink-0 border-r bg-sidebar text-sidebar-foreground">
       <div className="flex h-14 items-center gap-2 border-b px-4">
         <div className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
           <FileStack className="size-4" />
