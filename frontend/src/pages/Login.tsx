@@ -10,8 +10,8 @@ import type { Role } from "@/lib/hr/types";
 
 export function LoginPage() {
   const { isAuthenticated, login } = useRole();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("hana@test.co");
+  const [password, setPassword] = useState("admin123");
   const [loading, setLoading] = useState(false);
   const [loadingRole, setLoadingRole] = useState<Role | null>(null);
 
@@ -28,12 +28,12 @@ export function LoginPage() {
       // Determine role from input (mock logic for demo)
       let resolvedRole: Role = "employee";
       const normalized = email.toLowerCase();
-      if (normalized.includes("admin")) {
+      if (normalized.includes("admin") || normalized === "hana@test.co") {
         resolvedRole = "admin";
-      } else if (normalized.includes("manager")) {
+      } else if (normalized.includes("manager") || normalized === "gabriel@test.co") {
         resolvedRole = "manager";
       }
-      
+
       login(resolvedRole);
       setLoading(false);
     }, 1000);
@@ -53,10 +53,10 @@ export function LoginPage() {
       <div className="relative hidden w-full flex-col justify-between bg-zinc-950 p-10 text-white md:flex md:w-1/2 overflow-hidden border-r border-zinc-800">
         {/* Custom CSS Grid Background Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30" />
-        
+
         {/* Colorful Gradient Blur in bottom left */}
         <div className="absolute -bottom-40 -left-40 size-96 rounded-full bg-blue-500/10 blur-[128px]" />
-        
+
         <div className="relative z-10 flex items-center gap-2">
           <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <FileStack className="size-5" />
@@ -178,7 +178,7 @@ export function LoginPage() {
                   <ShieldCheck className="size-4.5" />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold">Sarah Jenkins</div>
+                  <div className="text-xs font-semibold">Hana Ito</div>
                   <div className="text-[10px] text-muted-foreground">HR Admin (Full Permissions)</div>
                 </div>
               </div>
@@ -199,7 +199,7 @@ export function LoginPage() {
                   <Users className="size-4.5" />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold">Amara Okafor</div>
+                  <div className="text-xs font-semibold">Gabriel Silva</div>
                   <div className="text-[10px] text-muted-foreground">HR Manager (Employee Docs)</div>
                 </div>
               </div>
@@ -220,7 +220,7 @@ export function LoginPage() {
                   <User className="size-4.5" />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold">Diana Ruiz</div>
+                  <div className="text-xs font-semibold">Amara Okafor</div>
                   <div className="text-[10px] text-muted-foreground">Employee (View & E-Sign Only)</div>
                 </div>
               </div>
