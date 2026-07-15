@@ -220,7 +220,7 @@ export function TopBar() {
               )}
             </DropdownMenuContent>
           </DropdownMenu>
-
+          {/* 
           <Select value={role} onValueChange={(v) => setRole(v as Role)}>
             <SelectTrigger className="h-9 w-[160px]" aria-label="Switch role">
               <SelectValue />
@@ -230,7 +230,7 @@ export function TopBar() {
               <SelectItem value="manager">HR Manager</SelectItem>
               <SelectItem value="employee">Employee</SelectItem>
             </SelectContent>
-          </Select>
+          </Select> */}
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -275,7 +275,7 @@ export function TopBar() {
                 <X className="size-4" />
               </Button>
             </div>
-            
+
             <nav className="flex-1 space-y-1">
               {NAV.filter((n) => n.roles.includes(role)).map((item) => {
                 const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
@@ -298,7 +298,7 @@ export function TopBar() {
                 );
               })}
             </nav>
-            
+
             <div className="border-t pt-3 text-xs text-muted-foreground mt-auto">
               <div className="font-medium text-foreground">Acme Corp</div>
               <div>© 2026 · v1.0</div>
